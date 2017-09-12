@@ -1,6 +1,6 @@
 /**
- * Sample React Native App
- * https://github.com/facebook/react-native
+ * Egla / Egils saga
+ * https://github.com/svngr/egla
  * @flow
  */
 

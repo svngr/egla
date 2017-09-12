@@ -40,7 +40,10 @@ class App extends Component {
     return (
       <View style={styles.container}>
         <StatusBar hidden={this.props.fullscreen} backgroundColor="#fafafa" barStyle="dark-content" />
-        <ScrollView style={styles.scrollViewContainer} contentContainerStyle={styles.content} ref={(ref) => { this.scrollViewRef = ref; }}>
+        <ScrollView
+          style={styles.scrollViewContainer}
+          contentContainerStyle={styles.content}
+          ref={(ref) => { this.scrollViewRef = ref; }}>
           <HeaderView />
           <ChaptersList />
           <ChapterText />

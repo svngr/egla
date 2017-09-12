@@ -51,9 +51,9 @@ function chapters(state = initialChaptersState, action) {
         newItems = chaptersReadList.slice(); // copy
 
         if (newItems.indexOf(currChapter) < 0)
-          newItems.push(currChapter); // add currChapter
+          newItems.push(currChapter); // add currChapter (i.e. mark as read)
         else
-          newItems = chaptersReadList.filter(e => e !== currChapter); // remove currChapter
+          newItems = chaptersReadList.filter(e => e !== currChapter); // remove currChapter (i.e. mark as unread)
       }
 
       return { ...state, chaptersReadList: newItems };
