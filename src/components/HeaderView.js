@@ -8,7 +8,7 @@ export default class HeaderView extends React.Component {
   render() {
     return (
       <View style={styles.headerView}>
-        <Image source={require('../res/egill.png')} alignContent={'center'} style={styles.image}>
+        <Image source={require('../../res/egill.png')} alignContent={'center'} style={styles.image}>
           <View style={styles.imageTextContainer}>
             <Text style={styles.logo}>Egils saga</Text>
           </View>

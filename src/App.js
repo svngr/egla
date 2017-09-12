@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import { StyleSheet, View, ScrollView, BackHandler, StatusBar } from 'react-native';
 import { connect } from 'react-redux';
 import { NavigationActions } from 'react-navigation';
-import HeaderView from './HeaderView';
-import ChaptersList from './ChaptersList';
-import ChapterText from './ChapterText';
-import BottomBar from './BottomBar';
-import MarkButton from './MarkButton';
+import HeaderView from './components/HeaderView';
+import ChaptersList from './components/ChaptersList';
+import ChapterText from './components/ChapterText';
+import BottomBar from './components/BottomBar';
+import MarkButton from './components/MarkButton';
 
 class App extends Component {
   static navigationOptions = { title: 'Egils saga', header: null }; // null to hide header

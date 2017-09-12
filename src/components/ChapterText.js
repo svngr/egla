@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet, TouchableWithoutFeedback } from 'react-native';
 import { connect } from 'react-redux';
 import { NavigationActions } from 'react-navigation';
-import egla from '../res/egla.json';
+import egla from '../../res/egla.json';
 
 class ChapterText extends React.Component {
   render() {
