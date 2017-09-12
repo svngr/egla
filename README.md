@@ -4,7 +4,9 @@ Með þessu appi er hægt að lesa Egils sögu á íslensku, fornnorrænu og ens
 
 Hægt er að nálgast appið á [Google Play](https://play.google.com/store/apps/details?id=com.egla).
 
-<img src=".github/screenshot.png" width="540">
+<img src=".github/screenshot.png" width="300">
+
+Textinn er fenginn frá [sagadb.org](http://sagadb.org/).
 
 ## Kröfur
 
