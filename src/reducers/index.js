@@ -9,7 +9,11 @@ function nav(state = initialNavState, action) {
   return state;
 }
 
-const initialSettingsState = { fullscreen: false, language: "is", readingFontSize: 20 };
+const initialSettingsState = {
+  fullscreen: false,
+  language: 'is',
+  readingFontSize: 20,
+};
 
 function settings(state = initialSettingsState, action) {
   switch (action.type) {
@@ -23,10 +27,11 @@ function settings(state = initialSettingsState, action) {
       var newFontSize = state.readingFontSize;
 
       // six different font sizes possible
-      if (newFontSize < 29)
+      if (newFontSize < 29) {
         newFontSize = newFontSize + 3;
-      else
-        newFontSize = 14
+      } else {
+        newFontSize = 14;
+      }
 
       return { ...state, readingFontSize: newFontSize };
     default:
@@ -34,8 +39,10 @@ function settings(state = initialSettingsState, action) {
   }
 }
 
-// example: if chaptersReadList is [1,2], then chapter 1 and chapter 2 have been read
-const initialChaptersState = { chaptersReadList: [], selectedChapter: 1 };
+const initialChaptersState = {
+  chaptersReadList: [], // example: if chaptersReadList is [1,2], then chapter 1 and chapter 2 have been read
+  selectedChapter: 1,
+};
 
 function chapters(state = initialChaptersState, action) {
   const { chaptersReadList } = state;
@@ -50,10 +57,11 @@ function chapters(state = initialChaptersState, action) {
       if (chaptersReadList !== undefined) {
         newItems = chaptersReadList.slice(); // copy
 
-        if (newItems.indexOf(currChapter) < 0)
+        if (newItems.indexOf(currChapter) < 0) {
           newItems.push(currChapter); // add currChapter (i.e. mark as read)
-        else
+        } else {
           newItems = chaptersReadList.filter(e => e !== currChapter); // remove currChapter (i.e. mark as unread)
+        }
       }
 
       return { ...state, chaptersReadList: newItems };

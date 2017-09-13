@@ -1,5 +1,11 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, ScrollView, BackHandler, StatusBar } from 'react-native';
+import {
+  StyleSheet,
+  View,
+  ScrollView,
+  BackHandler,
+  StatusBar,
+} from 'react-native';
 import { connect } from 'react-redux';
 import { NavigationActions } from 'react-navigation';
 import HeaderView from './components/HeaderView';
@@ -24,32 +30,40 @@ class App extends Component {
   }
 
   onBackPress = () => {
-    if (!this.props.fullscreen)
+    if (!this.props.fullscreen) {
       return false;
+    }
 
     this.props.stopFullscreen();
 
     return true;
-  }
+  };
 
   scrollToTop = () => {
-    this.scrollViewRef.scrollTo({animated: false});
-  }
+    this.scrollViewRef.scrollTo({ animated: false });
+  };
 
   render() {
     return (
       <View style={styles.container}>
-        <StatusBar hidden={this.props.fullscreen} backgroundColor="#fafafa" barStyle="dark-content" />
+        <StatusBar
+          hidden={this.props.fullscreen}
+          backgroundColor="#fafafa"
+          barStyle="dark-content"
+        />
         <ScrollView
           style={styles.scrollViewContainer}
           contentContainerStyle={styles.content}
-          ref={(ref) => { this.scrollViewRef = ref; }}>
+          ref={ref => {
+            this.scrollViewRef = ref;
+          }}
+        >
           <HeaderView />
           <ChaptersList />
           <ChapterText />
           <MarkButton scrollToTopFunc={this.scrollToTop} />
         </ScrollView>
-        {!this.props.fullscreen && <BottomBar /> }
+        {!this.props.fullscreen && <BottomBar />}
       </View>
     );
   }
@@ -72,9 +86,9 @@ const styles = StyleSheet.create({
   },
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  stopFullscreen: (itemValue) =>
-    dispatch(NavigationActions.navigate({type: 'STOP_FULLSCREEN'})),
+const mapDispatchToProps = dispatch => ({
+  stopFullscreen: itemValue =>
+    dispatch(NavigationActions.navigate({ type: 'STOP_FULLSCREEN' })),
 });
 
 const mapStateToProps = (state, ownProps) => ({

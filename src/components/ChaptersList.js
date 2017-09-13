@@ -9,19 +9,35 @@ class ChaptersList extends React.Component {
   }
 
   scrollToIndex = () => {
-    this.flatListRef.scrollToIndex({animated: true, viewPosition: 0.5, index: this.props.selectedChapter-1});
-  }
+    this.flatListRef.scrollToIndex({
+      animated: true,
+      viewPosition: 0.5,
+      index: this.props.selectedChapter - 1,
+    });
+  };
 
   render() {
     return (
       <View style={styles.strip}>
         <FlatList
-          ref={(ref) => { this.flatListRef = ref; }}
+          ref={ref => {
+            this.flatListRef = ref;
+          }}
           horizontal={true}
-          initialScrollIndex={this.props.selectedChapter-1}
-          getItemLayout={(data, index) => ({length: 114, offset: 114 * index, index: index})}
-          data={Array.from({ length: 90 }).map((x, i) => ({ key: i+1 }))}
-          renderItem={({item}) => <ChapterButton key={item.key} chapterNum={item.key} name={item.key} />}
+          initialScrollIndex={this.props.selectedChapter - 1}
+          getItemLayout={(data, index) => ({
+            length: 114,
+            offset: 114 * index,
+            index: index,
+          })}
+          data={Array.from({ length: 90 }).map((x, i) => ({ key: i + 1 }))}
+          renderItem={({ item }) => (
+            <ChapterButton
+              key={item.key}
+              chapterNum={item.key}
+              name={item.key}
+            />
+          )}
         />
       </View>
     );
@@ -35,8 +51,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const mapDispatchToProps = dispatch => ({
-});
+const mapDispatchToProps = dispatch => ({});
 
 const mapStateToProps = (state, ownProps) => ({
   selectedChapter: state.chapters.selectedChapter,

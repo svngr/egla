@@ -6,18 +6,19 @@ import egla from '../../res/egla.json';
 
 class ChapterText extends React.Component {
   render() {
-    const currChapter = egla.chapters[parseInt(this.props.selectedChapter)-1];
-    var currChapterText = "";
+    const currChapter = egla.chapters[parseInt(this.props.selectedChapter) - 1];
+    var currChapterText = '';
 
-    if (this.props.language === "en")
+    if (this.props.language === 'en') {
       currChapterText = currChapter.en;
-    else if (this.props.language === "on")
+    } else if (this.props.language === 'on') {
       currChapterText = currChapter.on;
-    else
+    } else {
       currChapterText = currChapter.is;
+    }
 
     return (
-      <TouchableWithoutFeedback onPress={() => {this.props.stopFullscreen();}}>
+      <TouchableWithoutFeedback onPress={this.props.stopFullscreen}>
         <View>
           <Text style={[styles.chapterText, {fontSize: this.props.readingFontSize}]}>
             {currChapterText}
@@ -40,8 +41,8 @@ const styles = StyleSheet.create({
 });
 
 const mapDispatchToProps = dispatch => ({
-  stopFullscreen: (itemValue) =>
-    dispatch(NavigationActions.navigate({type: 'STOP_FULLSCREEN'})),
+  stopFullscreen: itemValue =>
+    dispatch(NavigationActions.navigate({ type: 'STOP_FULLSCREEN' })),
 });
 
 const mapStateToProps = (state, ownProps) => ({

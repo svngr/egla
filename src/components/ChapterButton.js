@@ -6,16 +6,27 @@ import { NavigationActions } from 'react-navigation';
 class ChapterButton extends React.Component {
   render() {
     const currNum = parseInt(this.props.name);
-    const selected = (parseInt(this.props.name) === this.props.selectedChapter);
-    const read = (this.props.chaptersReadList.indexOf(parseInt(this.props.name)) >= 0);
-    const english = (this.props.language === "en");
+    const selected = parseInt(this.props.name) === this.props.selectedChapter;
+    const read =
+      this.props.chaptersReadList.indexOf(parseInt(this.props.name)) >= 0;
+    const english = this.props.language === 'en';
 
     return (
-      <TouchableWithoutFeedback onPress={() => {this.props.changeSelectedChapter(parseInt(this.props.name));}}>
-        <View style={[styles.circle, read && styles.read, selected && styles.selected]}>
-          <Text style={[{fontFamily: 'sans-serif' }, selected && styles.selectedText]}>
-            {english  ? <Text style={{fontSize: 20}}>Chapter {this.props.name}</Text>
-                      : <Text style={{fontSize: 28}}>Kafli {this.props.name}</Text>}
+      <TouchableWithoutFeedback
+        onPress={() => {
+          this.props.changeSelectedChapter(parseInt(this.props.name));
+        }}
+      >
+        <View
+          style={[
+            styles.circle,
+            read && styles.read,
+            selected && styles.selected,
+          ]}
+        >
+          <Text style={[selected && styles.selectedText]}>
+            {english  ? <Text style={{ fontSize: 20 }}>Chapter {this.props.name}</Text>
+                      : <Text style={{ fontSize: 28 }}>Kafli {this.props.name}</Text>}
           </Text>
         </View>
       </TouchableWithoutFeedback>
@@ -47,8 +58,8 @@ const styles = StyleSheet.create({
   },
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  changeSelectedChapter: (itemValue) =>
+const mapDispatchToProps = dispatch => ({
+  changeSelectedChapter: itemValue =>
     dispatch(NavigationActions.navigate({type: 'CHANGE_SELECTED_CHAPTER', value: itemValue})),
 });
 

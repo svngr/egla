@@ -4,10 +4,12 @@ import { connect } from 'react-redux';
 import { addNavigationHelpers, StackNavigator } from 'react-navigation';
 import App from './App';
 
-export const AppNavigator = StackNavigator({
+export const AppNavigator = StackNavigator(
+  {
     App: { screen: App },
-  },{
-    headerMode: 'screen'
+  },
+  {
+    headerMode: 'screen',
   }
 );
 
@@ -15,7 +17,9 @@ class AppWithNavigationState extends React.Component {
   render() {
     const { dispatch, nav } = this.props;
     return (
-      <AppNavigator navigation={addNavigationHelpers({ dispatch, state: nav })} />
+      <AppNavigator
+        navigation={addNavigationHelpers({ dispatch, state: nav })}
+      />
     );
   }
 }

@@ -6,17 +6,19 @@ import { Button } from 'react-native-elements';
 
 class MarkButton extends React.Component {
   toggleButton = () => {
-    if (this.props.chaptersReadList.indexOf(this.props.selectedChapter) === -1) {
+    const chapterNotRead = this.props.chaptersReadList.indexOf(this.props.selectedChapter) === -1;
+
+    if (chapterNotRead) {
       this.props.scrollToTopFunc();
-      this.props.changeSelectedChapter(parseInt(this.props.selectedChapter)+1);
+      this.props.changeSelectedChapter(this.props.selectedChapter + 1);
     }
 
-    this.props.toggleChapterRead(parseInt(this.props.selectedChapter));
-  }
+    this.props.toggleChapterRead(this.props.selectedChapter);
+  };
 
   render() {
-    const chapterRead = (this.props.chaptersReadList.indexOf(this.props.selectedChapter) >= 0);
-    const english = (this.props.language === "en");
+    const chapterRead = this.props.chaptersReadList.indexOf(this.props.selectedChapter) >= 0;
+    const english = this.props.language === 'en';
 
     return (
       <View style={styles.container}>
@@ -52,7 +54,7 @@ const styles = StyleSheet.create({
     fontSize: 17,
   },
   read: {
-    backgroundColor: 'gray'
+    backgroundColor: 'gray',
   },
 });
 

@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet, Dimensions, Image } from 'react-native';
 
 const MIN_HEIGHT = 10;
-const MAX_HEIGHT = ((Dimensions.get('window').width)/3)*2;
+const MAX_HEIGHT = Dimensions.get('window').width / 3 * 2;
 
 export default class HeaderView extends React.Component {
   render() {
