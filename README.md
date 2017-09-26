@@ -10,8 +10,10 @@ Textinn er fenginn frá [sagadb.org](http://sagadb.org/).
 
 ## Kröfur
 
-1. [Node](https://nodejs.org/)
-2. [npm](https://npmjs.com/)
+1. [**Node**](https://nodejs.org/)
+2. [**npm**](https://npmjs.com/)
+3. [**Java JDK & Android SDK**](https://facebook.github.io/react-native/releases/0.23/docs/android-setup.html)
+4. **React Native** (npm install -g react-native-cli)
 
 ## Uppsetning
 
